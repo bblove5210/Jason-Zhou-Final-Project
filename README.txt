@@ -1,4 +1,4 @@
-Execute Course_Schedule_Manager.jar to test the program.
+Execute Course_Schedule_Manager.jar to test the program. Hopefully the java version works out. Or else just compile the code :)
 
 Since there is no user creation functionality, I've premade some users in the system.
 Their username and password can be found in password.txt file.
