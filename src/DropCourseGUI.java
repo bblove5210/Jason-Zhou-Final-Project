@@ -14,7 +14,7 @@ public class DropCourseGUI extends JFrame {
 	private Student currUser;
 	private JPanel contentPane;
 	private List<Course> currCourses;
-	private JComboBox<String> comboBox;
+	private JComboBox<String> comboBoxCourse;
 
 	public DropCourseGUI(Student student) {
 		this.currUser = student;
@@ -45,30 +45,30 @@ public class DropCourseGUI extends JFrame {
 		btnBack.setBounds(203, 136, 89, 23);
 		contentPane.add(btnBack);
 		
-		comboBox = new JComboBox<>();
-		comboBox.setBounds(40, 63, 286, 22);
-		contentPane.add(comboBox);
-		updateComboBox();
+		comboBoxCourse = new JComboBox<>();
+		comboBoxCourse.setBounds(40, 63, 286, 22);
+		contentPane.add(comboBoxCourse);
+		updateComboBoxCourse();
 		
 	}
 	
-	private void updateComboBox() {
+	private void updateComboBoxCourse() {
 		currCourses = currUser.getEnrolledCourses();
-		comboBox.removeAllItems();
-		comboBox.addItem("");
+		comboBoxCourse.removeAllItems();
+		comboBoxCourse.addItem("");
 		for(Course course : currCourses) {
-			comboBox.addItem(course.getName());
+			comboBoxCourse.addItem(course.getName());
 		}
 	}
 	
 	private void btnDropClick() {
-		int index = comboBox.getSelectedIndex() - 1;
+		int index = comboBoxCourse.getSelectedIndex() - 1;
 		if(index == -1) {
 			return;
 		}
 		EnrollmentManager.dropStudentfromCourse(currUser, currCourses.get(index));
 		new MessageGUI("Course dropped successfully").setVisible(true);
-		updateComboBox();
+		updateComboBoxCourse();
 	}
 	
 	private void btnBackClick() {

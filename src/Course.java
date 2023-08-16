@@ -103,13 +103,13 @@ public class Course implements Serializable{
 
 	public static class CourseBuilder {
 		//not really necessary, mostly used for handling incompatible attributes
-		String name;
-		String instructor = "TBA";
-		String location = "TBA";
-		int credit;
-		ClockTime startTime;
-		ClockTime endTime;
-		Boolean[] weekdays;
+		private String name;
+		private String instructor = "TBA";
+		private String location = "TBA";
+		private int credit;
+		private ClockTime startTime;
+		private ClockTime endTime;
+		private Boolean[] weekdays;
 		
 		public CourseBuilder(int credit, Boolean[] weekdays) {
 			this.credit = credit;

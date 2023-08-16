@@ -14,10 +14,10 @@ import javax.swing.JPasswordField;
 public class LoginGUI extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField fieldUsername;
-	private JPasswordField fieldPassword;
-	JButton btnLogin;
-	JButton btnExit;
+	private JTextField txtFieldUsername;
+	private JPasswordField txtPasswordField;
+	private JButton btnLogin;
+	private JButton btnExit;
 
 	public LoginGUI() {
 		setTitle("Log In");
@@ -30,7 +30,7 @@ public class LoginGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnLogin = new JButton("Login");
+		btnLogin = new JButton("Login");
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnLoginClick();
@@ -39,7 +39,7 @@ public class LoginGUI extends JFrame {
 		btnLogin.setBounds(172, 150, 89, 23);
 		contentPane.add(btnLogin);
 		
-		JButton btnExit = new JButton("Exit");
+		btnExit = new JButton("Exit");
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnExitClick();
@@ -48,10 +48,10 @@ public class LoginGUI extends JFrame {
 		btnExit.setBounds(172, 184, 89, 23);
 		contentPane.add(btnExit);
 		
-		fieldUsername = new JTextField();
-		fieldUsername.setBounds(123, 66, 188, 20);
-		contentPane.add(fieldUsername);
-		fieldUsername.setColumns(10);
+		txtFieldUsername = new JTextField();
+		txtFieldUsername.setBounds(123, 66, 188, 20);
+		contentPane.add(txtFieldUsername);
+		txtFieldUsername.setColumns(10);
 		
 		JLabel lblUsername = new JLabel("Username");
 		lblUsername.setBounds(47, 69, 73, 14);
@@ -61,14 +61,14 @@ public class LoginGUI extends JFrame {
 		lblPassword.setBounds(47, 112, 64, 14);
 		contentPane.add(lblPassword);
 		
-		fieldPassword = new JPasswordField();
-		fieldPassword.setBounds(123, 109, 188, 20);
-		contentPane.add(fieldPassword);
+		txtPasswordField = new JPasswordField();
+		txtPasswordField.setBounds(123, 109, 188, 20);
+		contentPane.add(txtPasswordField);
 	}
 	
 	private void btnLoginClick() {
-		String username = fieldUsername.getText().strip();
-		String password = fieldPassword.getText();
+		String username = txtFieldUsername.getText().strip();
+		String password = txtPasswordField.getText();
 		
 		User user = Authenticator.validate(username, password);
 		if(user == null) {

@@ -28,8 +28,8 @@ public class CreateCourseGUI extends JFrame {
 	private JButton btnCreate;
 	private JButton btnBack;
 	
-	private final int earliestHour = 8;
-	private final int latestHour = 20;
+	private final int EARLIEST_HOUR = 8;
+	private final int LATEST_HOUR = 20;
 
 	public CreateCourseGUI(Administrator admin) {
 		this.currUser = admin;
@@ -191,7 +191,7 @@ public class CreateCourseGUI extends JFrame {
 		comboBoxEndingMinute.addItem("");
 		comboBoxCredit.addItem("");
 		
-		for(int i=earliestHour; i<latestHour; ++i) {
+		for(int i=EARLIEST_HOUR; i<LATEST_HOUR; ++i) {
 			comboBoxStartingHour.addItem(String.format("%02d", i));
 			comboBoxEndingHour.addItem(String.format("%02d", i));
 		}
@@ -205,13 +205,13 @@ public class CreateCourseGUI extends JFrame {
 	}
 	
 	private void btnCreateClick() {
-		int startingHour = comboBoxStartingHour.getSelectedIndex()-1+earliestHour;
+		int startingHour = comboBoxStartingHour.getSelectedIndex()-1+EARLIEST_HOUR;
 		int startingMinute = comboBoxStartingMinute.getSelectedIndex()-1;
-		int endingHour = comboBoxEndingHour.getSelectedIndex()-1+earliestHour;
+		int endingHour = comboBoxEndingHour.getSelectedIndex()-1+EARLIEST_HOUR;
 		int endingMinute = comboBoxEndingMinute.getSelectedIndex()-1;
 		int credit = comboBoxCredit.getSelectedIndex()-1;
 		
-		if(startingHour<earliestHour || startingMinute<0 || endingHour<earliestHour || endingMinute<0 || credit<0) {
+		if(startingHour<EARLIEST_HOUR || startingMinute<0 || endingHour<EARLIEST_HOUR || endingMinute<0 || credit<0) {
 			return;
 		}
 		

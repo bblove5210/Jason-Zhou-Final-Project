@@ -73,10 +73,10 @@ public class ViewStudentsGUI extends JFrame {
 	}
 
 	private class StudentTable extends JTable {
-		private final static String[] columnNames = {"Name", "Username", "School Year", "Currect Credit"};
+		private final static String[] COLUMNNAMES = {"Name", "Username", "School Year", "Currect Credit"};
 		
 		public StudentTable(List<Student> studentList) {
-			super(convertStudentListToData(studentList), columnNames);
+			super(convertStudentListToData(studentList), COLUMNNAMES);
 			setSelectionMode(ListSelectionModel.SINGLE_SELECTION);		
 		}
 		

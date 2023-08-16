@@ -18,6 +18,7 @@ public class ViewStudentScheduleGUI extends JFrame {
 	private JPanel contentPane;
 	private SchedulePanel schedulePanel;
 	private JLabel lblCredit;
+	private JButton btnBack;
 
 	public ViewStudentScheduleGUI(Administrator admin, Student student) {
 		this.currUser = admin;
@@ -42,7 +43,7 @@ public class ViewStudentScheduleGUI extends JFrame {
 		lblCredit.setBounds(23, 460, 128, 14);
 		contentPane.add(lblCredit);
 		
-		JButton btnBack = new JButton("Back");
+		btnBack = new JButton("Back");
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnBackClick();

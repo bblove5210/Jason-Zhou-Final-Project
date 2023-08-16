@@ -2,18 +2,18 @@ import java.io.*;
 import java.util.Scanner;
 
 public class PasswordManager {
-	private static final String filename = "password.txt";
+	private static final String FILENAME= "password.txt";
 	
 	public static Boolean verifyPassword(String username, String password) {
-		String userPassword = getPassword(username);
+		String userPassword = getUserPassword(username);
 		if(userPassword != null) {
 			return password.equals(userPassword);
 		}
 		return false;
 	}
 	
-	private static String getPassword(String username) {
-		File passwordFile = new File(filename);
+	private static String getUserPassword(String username) {
+		File passwordFile = new File(FILENAME);
 		String userPassword = null;
 		try {
 			Scanner scanner = new Scanner(passwordFile);

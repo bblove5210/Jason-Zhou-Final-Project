@@ -4,10 +4,10 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 
 public class CourseTable extends JTable {
-	private final static String[] columnNames = {"Name", "Instructor", "Time", "Location", "Days", "Credit"};
+	private final static String[] COLUMN_NAMES = {"Name", "Instructor", "Time", "Location", "Days", "Credit"};
 	
 	public CourseTable(List<Course> courseList) {
-		super(convertCourseListToData(courseList), columnNames);
+		super(convertCourseListToData(courseList), COLUMN_NAMES);
 		setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		getTableHeader().setReorderingAllowed(false);
 	}

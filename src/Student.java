@@ -37,6 +37,7 @@ public class Student extends User {
 	}
 	
 	private void writeObject(ObjectOutputStream out) throws IOException{
+		//custom serialization, not shown on the sequence diagram
 		out.defaultWriteObject();
 		List<Integer> courseIDList = new ArrayList<>();
 		for(Course course : enrolledCourses) {
@@ -46,6 +47,7 @@ public class Student extends User {
 	}
 	
 	private void readObject(ObjectInputStream in) throws IOException, ClassNotFoundException{
+		//custom serialization, not shown on the sequence diagram
 		in.defaultReadObject();
 		this.enrolledCourses = new ArrayList<Course>();
 		this.currentCredit = 0;

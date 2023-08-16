@@ -5,11 +5,11 @@ import java.io.ObjectOutputStream;
 import java.util.*;
 
 public class CourseManager {
-	private static final String filename = "CourseData.bin";
+	private static final String FILENAME = "CourseData.bin";
 	
 	public static List<Course> loadCourseData() {
 		try {
-			FileInputStream filein = new FileInputStream(filename);
+			FileInputStream filein = new FileInputStream(FILENAME);
 			ObjectInputStream istream = new ObjectInputStream(filein);
 			List<Course> courseList = (ArrayList<Course>) istream.readObject();
 			Course.setNewCourseID((Integer)istream.readObject());
@@ -22,7 +22,7 @@ public class CourseManager {
 	
 	public static void saveCourseData(List<Course> courseList){
 		try{
-			FileOutputStream fileout = new FileOutputStream(filename);
+			FileOutputStream fileout = new FileOutputStream(FILENAME);
 			ObjectOutputStream ostream = new ObjectOutputStream(fileout);
 			ostream.writeObject(courseList);
 			ostream.writeObject(Integer.valueOf(Course.getNewCourseID()));

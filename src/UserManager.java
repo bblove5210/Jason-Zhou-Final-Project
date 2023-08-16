@@ -2,8 +2,8 @@ import java.io.*;
 import java.util.*;
 
 public class UserManager {
-	private static final String directoryPath = "Users/";
-	private static final String fileExtension = ".bin";
+	private static final String DIRECTORY_PATH = "Users/";
+	private static final String FILE_EXTENSION = ".bin";
 	
 	private static User getUserFilename(String filename) {
 		try {
@@ -18,20 +18,20 @@ public class UserManager {
 	}
 	
 	public static User getUser(String username) {
-		String filename = directoryPath + username + fileExtension;
+		String filename = DIRECTORY_PATH + username + FILE_EXTENSION;
 		return getUserFilename(filename);
 	}
 	
 	public static List<Student> getAllStudents(){
 		List<Student> studentList = new ArrayList<>();
 		try {
-			File dir = new File(directoryPath);
+			File dir = new File(DIRECTORY_PATH);
 			File[] fileList = dir.listFiles();
 			if(fileList == null) {
 				return studentList;
 			}
 			for(File userFile : fileList) {
-				User user = getUserFilename(directoryPath+userFile.getName());
+				User user = getUserFilename(DIRECTORY_PATH+userFile.getName());
 				if(user instanceof Student) {
 					studentList.add((Student)user);
 				}
@@ -44,11 +44,11 @@ public class UserManager {
 	}
 		
 	public static void saveProfile(User user) {
-		File dir = new File(directoryPath);
+		File dir = new File(DIRECTORY_PATH);
 		if(!dir.exists()) {
 			dir.mkdirs();
 		}
-		String filename = directoryPath + user.getUsername() + fileExtension;
+		String filename = DIRECTORY_PATH + user.getUsername() + FILE_EXTENSION;
 		try {
 			FileOutputStream fileout = new FileOutputStream(filename);
 			ObjectOutputStream ostream = new ObjectOutputStream(fileout);
