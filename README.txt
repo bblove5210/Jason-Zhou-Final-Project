@@ -1,6 +1,6 @@
-Execute Course_Schedule_Manager to test the program.
+Execute Course_Schedule_Manager.jar to test the program.
 
-Since there is user creation functionality, I've premade some users in the system.
+Since there is no user creation functionality, I've premade some users in the system.
 Their username and password can be found in password.txt file.
 Among them, admin has the administrator role.
 
